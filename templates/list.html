@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		{% block head_content %}{% endblock %} {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <style type="text/css">
+			.center{
+				display: flex;
+				justify-content: center;
+				margin-bottom: 20px;
+			}
+
+			.display{
+				padding-top: 40px;
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		{% include "nav.html" %}
+
+		<div class="container display">
+      <div class="row center">
+        <h1>Dealership Portal List</h1>
+      </div>
+			<div class="row">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Make</th>
+							<th scope="col">Model</th>
+							<th scope="col">description</th>
+							<th scope="col">Color</th>
+							<th scope="col">Doors</th>
+							<th scope="col">Lot</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for vehicle in vehicles %}
+						<tr>
+							<th scope="row">{{ vehicle.id }}</th>
+							<td>{{ vehicle.make }}</td>
+							<td>{{ vehicle.model }}</td>
+							<td>{{ vehicle.description }}</td>
+							<td>{{ vehicle.color }}</td>
+							<td>{{ vehicle.doors }}</td>
+							<td>{{ vehicle.lot }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

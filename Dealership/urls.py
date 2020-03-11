@@ -20,5 +20,5 @@ from vehicle_inventory.views import create_vehicle, list_vehicles
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('v1/portal/', include(('vehicle_inventory.urls', 'vehicle_inventory'), namespace='vehicle_inventory')),
+    path('', include(('vehicle_inventory.urls', 'vehicle_inventory'), namespace='vehicle_inventory')),
 ]
